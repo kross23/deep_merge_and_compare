@@ -21,11 +21,7 @@ function deepMergeObject(obj1, obj2) { //* глубокое копировани
 	const result = deepCopy(obj1);
 	for (const key of Object.keys(obj2)) {
 		if (!Object.prototype.hasOwnProperty.call(result, key)) { //*!result.hasOwnProperty(key)
-			if (isArray(obj2[key])) {
-				result[key] = deepCopy(obj2[key]);
-				continue;
-			}
-			if (isObject(obj2[key])) {
+			if (isArray(obj2[key])  || isObject(obj2[key])) {
 				result[key] = deepCopy(obj2[key]);
 				continue;
 			}
